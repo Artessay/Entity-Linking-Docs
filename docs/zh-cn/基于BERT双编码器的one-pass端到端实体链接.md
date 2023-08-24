@@ -1,3 +1,5 @@
+# 基于BERT双编码器的one-pass端到端实体链接
+
 ## 摘要
 
 本文介绍了一种端到端的针对问句的实体链接模型ELQ，同时实现mention的识别与实体的链接。该方法实现了一个基于BERT的biencoder，识别了问句中的mention并将其链接到Wikipedia中。该方法不仅效率高，而且速度快，在WebQSP和GraphQuestions上达到了SOTA。

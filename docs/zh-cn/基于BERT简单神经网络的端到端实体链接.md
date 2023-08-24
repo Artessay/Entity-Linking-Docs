@@ -1,8 +1,6 @@
----
-marp: true
----
+# 基于BERT的端到端实体链接
 
-# 通过简单神经端到端实体链接研究BERT中的实体知识
+通过简单神经网络端到端实体链接研究BERT中的实体知识
 
 Investigating Entity Knowledge in BERT with Simple Neural End-To-End Entity Linking
 
