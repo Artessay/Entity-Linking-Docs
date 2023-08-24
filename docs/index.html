@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Entity Linking Documents</title>
@@ -9,20 +10,39 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="icon" href="favicon.ico">
 </head>
+
 <body>
-  <div id="app"></div>
+  <div id="app">Loading ...</div>
   <script>
     window.$docsify = {
       name: 'Entity Linking Documents',
       repo: 'https://github.com/Artessay/Entity-Linking-Docs.git',
-      
+
+      coverpage: true,
+      autoHeader: true,
       loadSidebar: true,
       loadNavbar: true,
       subMaxLevel: 2,
+      auto2top: true,
+      homepage: 'zh-cn/README.md',
+      search: {
+        placeholder: {
+          '/': '搜索',
+          '/zh-cn/': '搜索',
+          '/en-us/': 'Type to search'
+        },
+        noData: {
+          '/': '找不到结果',
+          '/zh-cn/': '找不到结果',
+          '/en-us/': 'No Results'
+        }
+      },
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="./_js/search.js"></script>
 </body>
+
 </html>
