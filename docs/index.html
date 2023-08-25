@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <div id="app">Loading ...</div>
+  <div id="app">美好的事情正在发生 ...</div>
   <script>
     window.$docsify = {
       name: 'Entity Linking Documents',
@@ -37,6 +37,10 @@
           '/en-us/': 'No Results'
         }
       },
+      latex: {
+        inlineMath   : [['$', '$'], ['\\(', '\\)']], // default
+        displayMath  : [['$$', '$$']],               // default
+      },
     }
   </script>
   <!-- Docsify v4 -->
@@ -44,6 +48,9 @@
   <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script> -->
   <script src="_js/docsify.min.js"></script>
   <script src="_js/search.js"></script>
+  <script src="_js/zoom-image.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-latex@0"></script>
 </body>
 
 </html>

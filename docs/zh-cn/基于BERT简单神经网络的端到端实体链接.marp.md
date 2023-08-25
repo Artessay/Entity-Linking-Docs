@@ -33,8 +33,6 @@ Investigating Entity Knowledge in BERT with Simple Neural End-To-End Entity Link
     * mention：句子中的每一个token，即每一个词
     * 模型BERT+Entity有非常好的效果，仅有3%的错误率
 
-![30%](_img/bert-fig1.png)
-
 ---
 
 ### 本文目标
