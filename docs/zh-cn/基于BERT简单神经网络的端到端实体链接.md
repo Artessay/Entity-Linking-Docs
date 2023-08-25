@@ -4,8 +4,6 @@
 
 Investigating Entity Knowledge in BERT with Simple Neural End-To-End Entity Linking
 
----
-
 ## 简介
 
 ### 实体链接简介
@@ -18,13 +16,10 @@ Investigating Entity Knowledge in BERT with Simple Neural End-To-End Entity Link
 
 三个阶段相互依赖，联合建模将更为有利。MD，CG的质量决定了实体链接的上限
 
----
-
 ### BERT
 
 BERT是一种采用大量语言数据预训练的深度自注意力结构，适用于多种NLP任务。
 
----
 
 ### 本文目标
 
@@ -36,7 +31,6 @@ BERT是一种采用大量语言数据预训练的深度自注意力结构，适�
 
 ![Alt text](_img/bert-fig1.png)
 
----
 
 * 在预训练的BERT中已经包含了多少的实体知识？
   * Frozen-BERT+Entity正确率比BERT+Entity低了6%
