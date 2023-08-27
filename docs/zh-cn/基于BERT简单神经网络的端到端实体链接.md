@@ -75,7 +75,17 @@ BERT
 
 原理：考虑上下文相关的token，分类器对每一个entity vocabulary中的entry计算实体链接的概率。
 
-具体来说，令 $d$ 表示BERT的词向量维度，$E \in R^{|KB| \times d}$
+具体来说，令 
+* $d$ 表示BERT的词向量维度
+* $E \in R^{|KB| \times d}$ 表示实体分类层，其中$|KB|$是知识图谱KB的实体数量
+* $V$ 表示 sub-word 词汇表
+* $c_i = BERT(h)[i]$ 表示从上下文$h = [v_1, v_2, \cdots, v_{i-1}, v_i, v_{i+1}, \cdots, v_m]$中第i个词BERT计算的结果
+* $\sigma(E_j c_i)$ 表示上下文$h$中词$v_i$被链接到实体$j$的概率 $p(j | v, h)$。这里$\sigma$是sigmoid函数
+
+
+### 训练数据
+
+
 
 
 ## 背景资料
