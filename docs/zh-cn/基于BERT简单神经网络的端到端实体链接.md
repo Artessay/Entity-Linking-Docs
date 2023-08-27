@@ -4,6 +4,8 @@
 
 Investigating Entity Knowledge in BERT with Simple Neural End-To-End Entity Linking
 
+![](https://github.com/samuelbroscheit/entity_knowledge_in_bert/blob/master/docs/Bert-Entity.png)
+
 ## 简介
 
 ### 实体链接简介
@@ -23,7 +25,7 @@ Investigating Entity Knowledge in BERT with Simple Neural End-To-End Entity Link
   * 建立了一个在整个词汇表上的逐词分类链接任务
     * entity：700K英语维基百科中最常用的词组
     * mention：句子中的每一个token，即每一个词
-    * 模型BERT+Entity有非常好的效果，仅有3%的错误率
+    * 模型BERT+Entity有非常好的效果，仅有3%的错误由跨度错误造成，绝大多数错误是Nil预测造成的。
 
 <!-- <img src=_img/bert-fig1.png width=60% align=center /> -->
 
@@ -85,8 +87,13 @@ BERT
 
 ### 训练数据
 
+* 数据来自英文维基百科文本
+* 采用WikiExtractor的扩展版本提取与维基百科内部超链接相关的text span作为标注。
+* 收集潜在可链接$(m, e)$元组集合$M$，并让我们能够根据$(m, e)$的出现次数$#(m, e)$计算条件概率$p(e|m)$
 
+### 不完整标记处理
 
+采用Wikipedia的超链接标记最大的问题是，这种方法下大多数实体都没有对所有的提及进行标注。往往只有文章中第一次出现才有链接。
 
 ## 背景资料
 
