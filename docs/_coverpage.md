@@ -2,9 +2,9 @@
 
 <!-- ![logo](https://avatars.githubusercontent.com/u/109841416) -->
 
-<p align="center">
+<!-- <p align="center">
  <img src="https://avatars.githubusercontent.com/u/109841416" alt="logo" width=200 height=200 />
-</p>
+</p> -->
 
 # Entity Linking Docs <small>1.0</small>
 
