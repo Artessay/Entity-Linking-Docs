@@ -14,7 +14,7 @@
 - 众多主题
 
 [GitHub](https://github.com/Artessay/Entity-Linking-Docs.git)
-[Get Started](zh-cn/introduction)
+[Get Started](zh-cn/)
 
 <!-- 背景图片 -->
 
@@ -22,4 +22,4 @@
 
 <!-- 背景色 -->
 
-![color](#f0f0f0)
+![color](#FFBEB3)

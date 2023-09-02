@@ -14,7 +14,7 @@
    - 基于mention embedding和entity embedding的内积进行消歧 
 - 系统架构：
 
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/27430994/1691794702529-534b65ee-e680-4de5-b499-216349644947.png#averageHue=%23d6e1ea&clientId=u5cc68cc1-9b02-4&from=paste&height=380&id=ue9648440&originHeight=760&originWidth=999&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=141931&status=done&style=none&taskId=ud18eee8b-4be0-40ce-aa2b-9c226af72b4&title=&width=500)
+![image.png](_img/elq-fig0.png)
 
 - benchmark：Sorokin and Gurevych（2018）
 - 优势：
@@ -26,18 +26,18 @@
 其中，每个实体来自Wikipedia，有标题t(e_i)和文本描述d(e_i)两个属性，文本描述为Wikipedia的前128个token。
 
 对于输入的长度为n的问题q = q1 q2 ... qn，首先使用BERT得到问题的question token representation
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/27430994/1692439268947-ce0b19b3-359f-4b0c-b539-7eecc1d18cf0.png#averageHue=%23f1f1f1&clientId=u6b3dfe89-ff3a-4&from=paste&height=72&id=ud1111f10&originHeight=144&originWidth=1092&originalType=binary&ratio=2&rotation=0&showTitle=false&size=85230&status=done&style=none&taskId=ua1179171-734f-4cd8-8798-c2c371509e7&title=&width=546)
+![image.png](_img/elq-fig1.png)
 接着对于实体集中的每一个实体，使用BERT计算entity representation
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/27430994/1692439428524-85579cd4-dd39-4fde-925f-51eecc78a26a.png#averageHue=%23eeeeee&clientId=u6b3dfe89-ff3a-4&from=paste&height=61&id=ua018d8fa&originHeight=122&originWidth=1074&originalType=binary&ratio=2&rotation=0&showTitle=false&size=75541&status=done&style=none&taskId=uf7036eee-1271-4cdb-b9bc-d897c8c8da0&title=&width=537)
+![image.png](_img/elq-fig2.png)
 
 ### 提及检测
 
 - 首先计算每一个token作为一个mention的开头或结尾的分数
-- ![image.png](https://cdn.nlark.com/yuque/0/2023/png/27430994/1692439535041-d15135a4-ee2e-430d-8ad9-056a0b336e60.png#averageHue=%23f2f2f2&clientId=u6b3dfe89-ff3a-4&from=paste&height=63&id=u36d73b2a&originHeight=126&originWidth=914&originalType=binary&ratio=2&rotation=0&showTitle=false&size=65509&status=done&style=none&taskId=u02b98ebe-28ad-4c70-81c1-807f12fc3a4&title=&width=457)
+- ![image.png](_img/elq-fig3.png)
 - 此外计算每个token作为mention的一部分的分数
-- ![image.png](https://cdn.nlark.com/yuque/0/2023/png/27430994/1692444196137-93c3877a-6daa-49c1-89bb-eeb4b9cbfcd1.png#averageHue=%23f3f3f3&clientId=u6b3dfe89-ff3a-4&from=paste&height=66&id=u74d44b5f&originHeight=132&originWidth=620&originalType=binary&ratio=2&rotation=0&showTitle=false&size=46803&status=done&style=none&taskId=uac1d53d3-8bd1-46c8-91a1-8d9deca6e02&title=&width=310)
+- ![image.png](_img/elq-fig4.png)
 - 最终，计算candidate span [i, j] 是mention的概率为：
-- ![image.png](https://cdn.nlark.com/yuque/0/2023/png/27430994/1692444517581-8dea3ce6-4039-46da-854b-06d8f5b2fcae.png#averageHue=%23f6f6f6&clientId=u6b3dfe89-ff3a-4&from=paste&height=111&id=u47f30efd&originHeight=222&originWidth=1064&originalType=binary&ratio=2&rotation=0&showTitle=false&size=120391&status=done&style=none&taskId=u86ed0073-9494-4858-a40c-cc4774a0618&title=&width=532)
+- ![image.png](_img/elq-fig5.png)
 
 ### 实体消歧
 
