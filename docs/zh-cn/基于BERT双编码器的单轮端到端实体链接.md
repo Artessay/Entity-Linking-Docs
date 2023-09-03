@@ -1,4 +1,4 @@
-# 基于BERT双编码器的one-pass端到端实体链接
+# 基于BERT双编码器的单轮端到端实体链接
 
 ## 摘要
 
@@ -20,9 +20,11 @@
 - 优势：
    - 准确率（提升大约6%）
    - 运行速度（大约比其他神经网络快一倍）
+
 ## 问题定义与模型
+
 ### 问题定义
-对于给定的问题$q$和实体集 $\Epsilon = \{ e_i \}$，生成一个tuple的列表$(e, [m_s, m_e])$满足$e$是问题$q$中第$m_s$个token到第$m_e$个token在实体集中所对应的实体。
+对于给定的问题$q$和实体集 $\epsilon = \{ e_i \}$，生成一个tuple的列表$(e, [m_s, m_e])$满足$e$是问题$q$中第$m_s$个token到第$m_e$个token在实体集中所对应的实体。
 其中，每个实体来自Wikipedia，有标题t(e_i)和文本描述d(e_i)两个属性，文本描述为Wikipedia的前128个token。
 
 对于输入的长度为n的问题q = q1 q2 ... qn，首先使用BERT得到问题的question token representation
@@ -76,7 +78,9 @@ entity disambiguation部分：
 将mention检测和实体消歧结合起来使得可以在实体连接过程中找到多个候选mention
 
 ## 实验结果
+
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/27430994/1692449825110-95c273ec-8019-435d-9e9d-f4b0aab0e4a2.png#averageHue=%23e9e9e9&clientId=u6b3dfe89-ff3a-4&from=paste&height=288&id=u9c69a05f&originHeight=576&originWidth=1908&originalType=binary&ratio=2&rotation=0&showTitle=false&size=591648&status=done&style=none&taskId=ufb580746-db31-4a88-96e7-7b288f76cf0&title=&width=954)
+
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/27430994/1692449880640-22b74ada-5b62-4abf-abc1-815ba9655f3f.png#averageHue=%23e5e5e5&clientId=u6b3dfe89-ff3a-4&from=paste&height=141&id=uc884c97e&originHeight=282&originWidth=786&originalType=binary&ratio=2&rotation=0&showTitle=false&size=124722&status=done&style=none&taskId=ucd6adc9d-daba-47cd-b549-59ab3c93db3&title=&width=393)
 
 大意：比目前已有的工作的表现都要好，并且运算时间更短
@@ -86,14 +90,20 @@ entity disambiguation部分：
 基准baseline：Mixing context granularities for improved entity linking on question answering data across entity categories
 
 ## 总结
+
 ELQ不需要事先提供mention边界的代价是枚举所有可能的mention。针对问句，尤其是WebQSP这种非常简短的问句，考虑所有可能的mention的代价是可以承受的。虽然论文最后说期待ELQ未来可以运用在长文本之中，但对于长文本来说，考虑所有可能的mention代价难以承受。因此ELQ的方法可能适用于问句，但不一定能够很好地迁移到长文本上。
+
 ## 背景知识
+
 ### 词向量 token embedding
+
 Embedding是将如one-hot这样高维度的稀疏矩阵与一个embedding矩阵相乘得到一个稠密的低维矩阵，以降低后续运算的维度。
 
 词向量 (token embeddings) 的作用是将词映射成一个数值向量，而且语义相近的词，在向量空间上具有相似的位置。
+
 #### 查询矩阵和One-Hot编码
 Embedding 本质是一个查询矩阵，或者说是一个 dict 数据结构。以词向量为例， Embedding dict 的 Key 是词在词表中的索引位置（Index），Embedding dict 的 Value 是这个词的 dim 维的向量。假设我们的词表只有5个词，我们想把“北京欢迎你”编码为向量。词表一共5个词（Token）（每个字作为一个词）：“北”: 0、“京”: 1、“欢”: 2、“迎”: 3、“你”: 4。每个 Token 都有文字表示和在词表中的索引（Index）。
+
 #### PyTorch实现
 深度学习框架都有一个专门的模块来表示 Embedding，比如 PyTorch 中 `torch.nn.Embedding` 就是一个专门用于做 Embedding 的模块。我们可以用这个方法将 Token 编码为词向量。
 ```python
