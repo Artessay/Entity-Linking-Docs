@@ -10,8 +10,7 @@
 
 > 实体链接论文阅读笔记
 
-- 简单、轻便
-- 众多主题
+- Artessay
 
 [GitHub](https://github.com/Artessay/Entity-Linking-Docs.git)
 [Get Started](zh-cn/)
