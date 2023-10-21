@@ -1,0 +1,20 @@
+
+# Compiler outputs #
+*.a
+*.bat
+*.exe
+*.json
+*.pyc
+temp_risk.txt
+squad_format.py
+
+# Directories #
+output
+baselines
+i2b2
+.idea
+
+# Packages #
+*.gz
+*.iso
+*.jar
